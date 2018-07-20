@@ -16,40 +16,4 @@ public abstract class Sensor {
 	public Location getLocation() {
 		return this.location;
 	}
-	
-	abstract String getData();
-}
-
-class TemperatureSensor extends Sensor {
-	String temperature_data;
-	
-	public String getData() {
-		return this.temperature_data;
-	}
-}
-
-class PHSensor extends Sensor {
-	String pH_data;
-	
-	public String getData() {
-		return this.pH_data;
-	}
-}
-
-class OxygenSensor extends Sensor {
-	String oxygen_data;
-	
-	public String getData() {
-		return this.oxygen_data;
-	}
-}
-
-class Location {
-	public double longitude;
-	public double latitude;
-	
-	public Location (double _long, double _lat) {
-		this.longitude= _long;
-		this.latitude= _lat;
-	}
 }
