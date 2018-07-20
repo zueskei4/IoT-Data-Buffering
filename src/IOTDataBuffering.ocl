@@ -1,0 +1,8 @@
+context SensorManager::getSensor(index)
+post: self.sensor_list.asSequence() -> at(index)
+
+context SensorManager::getSensorNumber() 
+post: result= sensor_list -> size()
+
+context SensorManager::addSensor(p)
+post: self.getSensorNumber()= self@pre.getSensorNumber()+ 1
