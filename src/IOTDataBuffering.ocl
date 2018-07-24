@@ -1,27 +1,47 @@
+--------Sensor----------
 context SensorManager::getSensor(index):
-post: sensorList.asSequence()->at(index)
+post: sensor_list.asSequence()->at(index)
 
 context SensorManager::getSensorNumber():
-post: result= sensorList->size()
+post: result= sensor_list->size()
 
-context SensorManager::addSensor(e)
-pre: sensorList->excluding(e)
+context SensorManager::addSensor(e):
+pre: sensor_list->excluding(e)
 
-context SensorManager::removeSensor(e)
-pre: sensorList->including(e)
+context SensorManager::removeSensor(e):
+pre: sensor_list->including(e)
 
-context SensorManager::sendData()
-pre: sensorList->notEmpty()
-post: sensorList->iterate(e)->send(e.data)
+context SensorManager::sendData():
+pre: sensor_list->notEmpty()
 
-context Log::receiveData()
-pre: 
-post:
+context SensorManager::sendData():
+post: sensor_list->iterate(e)->send(e.data)
 
-context Log::writeBuffer(data)
-pre: 
-post: buffer->append(data)
+context OxygenSensor inv:
+oxygenData >= 0 and oxygenData <= 100
 
-context BufferManager::
+context TemperatureSensor inv:
+temperatureData >= -100 and temperatureData <= 100
 
+context pHData inv:
+pHData >= 0 and pHData <= 14
+
+context SensorManager::
+
+--------Buffer------------
+context BufferManager::writeBuffer(data):
+post: buffer.entry_list->append(data)
+
+context BufferManager::clearBuffer():
+post: buffer.entry_list -> excludesAll(self)
+
+context Buffer::get(index):
+post: entry_list.asSequence()->at(index)
+
+-------Exporter---------
+context ExporterManager::getExporter(index):
+post: exporter_list.asSequence()->at(index)
+
+context SensorManager::addExporter(e):
+pre: exporter_list->excluding(e)
 

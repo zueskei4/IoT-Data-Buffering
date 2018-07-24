@@ -1,38 +1,33 @@
 import java.util.Date;
+import java.util.ArrayList;
 
-public class Log {
+public class Log implements Query {
 	BufferManager buffer_manager;
 	SensorManager sensor_manager;
-	Exporter exporter;
+	ExporterManager exporter_manager;
 	
 	public Log () {
 		buffer_manager= new BufferManager();
 		sensor_manager= new SensorManager();
-	}
-	
-	public Log (Exporter _exporter) {
-		buffer_manager= new BufferManager();
-		sensor_manager= new SensorManager();
-		exporter= _exporter;
+		exporter_manager= new ExporterManager();
 	}
 	
 	public void loadData2Buffer() {
-		Date date= new Date();
-		for(int i= 0; i < sensor_manager.getSensorNumber(); i++) {
-			Sensor sensor= sensor_manager.getSensor(i);
-			buffer_manager.writeBuffer(sensor.getId(), sensor.getLocation(), date.getTime());
+		ArrayList<Entry> entry_list= sensor_manager.collectData();
+		for(Entry entry: entry_list) {
+			buffer_manager.writeBuffer(entry);
 		}
 	}
 	
-	public void exportData(Exporter _exporter, long _start_time, long _end_time) {
+	public void query(Exporter _ex, long _start_time, long _end_time, Location _from_loc, Location _to_loc) {
 		//TODO: query data in a duration
 	}
 	
-	public void exportData(Exporter _exporter, Location _location1, Location _location2) {
-		//TODO: query data in a area
+	public void query(Exporter _ex, long _start_time, long _end_time) {
+		//TODO: query data in a duration
 	}
 	
-	public void exportData(Exporter _exporter, long _start_time, long _end_time, Location _location1, Location _location2) {
-		//TODO: query data in a duration and a area
+	public void query(Exporter _ex, Location _from_loc, Location _to_loc) {
+		//TODO: query data in a duration
 	}
 }
