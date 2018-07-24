@@ -1,7 +1,7 @@
 import java.util.Date;
 import java.util.ArrayList;
 
-public class BufferDataManager implements Query {
+public class BufferDataManager implements IQuery {
 	BufferManager buffer_manager;
 	SensorManager sensor_manager;
 	ExporterManager exporter_manager;
