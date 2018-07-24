@@ -1,12 +1,12 @@
 import java.util.Date;
 import java.util.ArrayList;
 
-public class Log implements Query {
+public class BufferDataManager implements Query {
 	BufferManager buffer_manager;
 	SensorManager sensor_manager;
 	ExporterManager exporter_manager;
 	
-	public Log () {
+	public BufferDataManager () {
 		buffer_manager= new BufferManager();
 		sensor_manager= new SensorManager();
 		exporter_manager= new ExporterManager();

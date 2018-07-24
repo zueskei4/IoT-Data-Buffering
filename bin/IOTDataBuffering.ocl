@@ -17,6 +17,9 @@ pre: sensor_list->notEmpty()
 context SensorManager::sendData():
 post: sensor_list->iterate(e)->send(e.data)
 
+context SensorManager::getLocation(_sensor):
+pre: sensor_list->including(_sensor)
+
 context OxygenSensor inv:
 oxygenData >= 0 and oxygenData <= 100
 
