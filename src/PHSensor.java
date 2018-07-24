@@ -5,9 +5,13 @@ public class PHSensor extends Sensor {
 		// TODO Auto-generated constructor stub
 	}
 
-	private float pHData; /* 0 - 14 */
+	private double pHData; /* 0 - 14 */
 	
-	public float getData() {
+	public double getData() {
 		return this.pHData;
+	}
+	
+	public void setData(double _data) {
+		pHData= _data;
 	}
 }

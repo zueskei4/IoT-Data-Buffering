@@ -12,4 +12,7 @@ public abstract class Sensor {
 	public String getId() {
 		return this.id;
 	}
+	
+	public abstract double getData();
+	public abstract void setData(double _data);
 }

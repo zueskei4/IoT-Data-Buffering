@@ -25,6 +25,13 @@ public class BufferDataManager implements Query {
 	
 	public void query(Exporter _ex, long _start_time, long _end_time) {
 		//TODO: query data in a duration
+		String entry2string= "";
+		DataConverter converter= new DataConverter();
+		for(Entry entry: buffer_manager.getBuffer().entry_list) {
+			if(entry.timestamp >= _start_time && entry.timestamp <= _end_time) {
+				entry2string += converter.entry2String(entry);
+			}
+		}
 	}
 	
 	public void query(Exporter _ex, Location _from_loc, Location _to_loc) {

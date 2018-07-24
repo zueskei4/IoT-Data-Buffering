@@ -10,4 +10,8 @@ public class OxygenSensor extends Sensor {
 	public double getData() {
 		return this.oxygenData;
 	}
+	
+	public void setData(double _data) {
+		oxygenData= _data;
+	}
 }

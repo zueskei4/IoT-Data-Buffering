@@ -31,6 +31,10 @@ public class SensorManager {
 	}
 	
 	public ArrayList<Entry> collectData(){
-		return new ArrayList<Entry>();
+		ArrayList<Entry> data_list= new ArrayList<Entry>();
+		for(Sensor sensor: sensor_list) {
+			data_list.add(converter.Data2Entry(sensor, getLocation(sensor)));
+		}
+		return data_list;
 	}
 }

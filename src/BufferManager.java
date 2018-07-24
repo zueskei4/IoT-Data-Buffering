@@ -10,5 +10,9 @@ public class BufferManager {
 		buffer.addEntry(_e);
 	}
 	
+	public Buffer getBuffer() {
+		return buffer;
+	}
+	
 	public void clearBuffer() {}
 }

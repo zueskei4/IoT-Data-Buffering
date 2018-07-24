@@ -29,6 +29,7 @@ public class Main {
 		Location location1= new Location(0.0000, 1.5555);
 		Location location2= new Location(1.5555, 3.5555);
 		Date time= new Date();
+		
 		while(true) {
 			log.loadData2Buffer();
 			
