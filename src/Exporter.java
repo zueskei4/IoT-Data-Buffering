@@ -34,6 +34,6 @@ class ConsoleExporter extends Exporter {
 	}
 	
 	public void export(String _data) {
-		// TODO: Send to console
+		System.out.println(_data);
 	}
 }

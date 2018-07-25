@@ -16,6 +16,6 @@ public class DataConverter {
 					+ Double.toString(_entry.location.getLongitude())+ ", "
 					+ Double.toString(_entry.location.getLatitude())+ " ---- "
 				+ "timestamp: "+ Long.toString(_entry.timestamp)+ " ---- "
-				+ "data: "+ _entry.data;
+				+ "data: "+ _entry.data+ ".\n";
 	}
 }
